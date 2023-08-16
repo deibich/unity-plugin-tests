@@ -499,3 +499,6 @@ FodyWeavers.xsd
 # End of https://www.toptal.com/developers/gitignore/api/cmake,unity,visualstudio,visualstudiocode
 
 CMakeUserPresets.json
+UnityProject/Assets/**/*.lib
+UnityProject/Assets/**/*.dll
+out/**
