@@ -15,7 +15,7 @@
             },
             "UNITY_PROJECT_ROOT_DIR": {
               "type": "PATH",
-              "value": "D:/projects/sdlD3D11Cuda/UnityProject"
+              "value": "D:/projects/unity-plugin-tests/UnityProject"
             },
             "UNITY_ASSETS_SUBDIRECTORY_ACTIONS": {
               "value": "Actions"
