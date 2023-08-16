@@ -1,0 +1,4 @@
+add_subdirectory(PluginLogger)
+add_subdirectory(Action)
+add_subdirectory(NativeActionRuntime)
+add_subdirectory(Actions)

@@ -1,0 +1,13 @@
+add_library(Action INTERFACE)
+
+target_link_libraries(Action
+	INTERFACE
+		unityInterfaces
+		NativeActionRuntime
+		PluginLogger
+)
+
+target_include_directories(Action
+	INTERFACE
+		"include"
+)	

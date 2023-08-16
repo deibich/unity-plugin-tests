@@ -1,0 +1,5 @@
+add_subdirectory(testSDL)
+add_subdirectory(unityNativePluginSequence)
+add_subdirectory(GfxPluginTest)
+add_subdirectory(unityNativePluginD3D11Resources)
+

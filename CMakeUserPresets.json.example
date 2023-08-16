@@ -1,0 +1,37 @@
+{
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "dev-common",
+            "inherits": "Default",
+          "cacheVariables": {
+            "CMAKE_TOOLCHAIN_FILE": {
+              "type": "PATH",
+              "value": "D:/development/vcpkg/scripts/buildsystems/vcpkg.cmake"
+            },
+            "OptiX_ROOT_DIR": {
+              "type": "FILE",
+              "value": "C:/ProgramData/NVIDIA Corporation/OptiX SDK 7.6.0/"
+            },
+            "UNITY_PROJECT_ROOT_DIR": {
+              "type": "PATH",
+              "value": "D:/projects/sdlD3D11Cuda/UnityProject"
+            },
+            "UNITY_ASSETS_SUBDIRECTORY_ACTIONS": {
+              "value": "Actions"
+            },
+            "UNITY_ASSETS_SUBDIRECTORY_RUNTIME": {
+              "value": "NativeActionRuntime"
+            },
+            "INSTALL_EXPERIMENTS": {
+              "type": "BOOL",
+              "value": false
+            },
+            "UNITY_ASSETS_SUBDIRECTORY_EXPERIMENTS": {
+              "value": "Experiments"
+            }
+
+          }
+        }
+    ]
+}
