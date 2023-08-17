@@ -13,7 +13,7 @@ public abstract class Action : MonoBehaviour
         public const int NATIVE_ACTION_RENDER_EVENT_ID_COUNT = 2;
     }
 
-    private ActionRuntime actionRuntime;
+    protected ActionRuntime actionRuntime;
 
     private IntPtr actionPointer = IntPtr.Zero;
 
@@ -34,12 +34,12 @@ public abstract class Action : MonoBehaviour
 
     protected virtual void initialize()
     {
-        actionRuntime.ExecuteImmediate(getRenderEventID(0), ActionPointer);
+        actionRuntime.ExecuteImmediate(getRenderEventID(ActionRenderEventIDS.ACTION_INITIALIZE), ActionPointer);
     }
 
     protected virtual void teardown()
     {
-        actionRuntime.ExecuteImmediate(getRenderEventID(1), ActionPointer);
+        actionRuntime.ExecuteImmediate(getRenderEventID(ActionRenderEventIDS.ACTION_TEARDOWN), ActionPointer);
     }
 
     protected abstract int getRenderEventIdOffset();

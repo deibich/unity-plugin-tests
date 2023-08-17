@@ -1,16 +1,18 @@
 using System;
 using System.Runtime.InteropServices;
+using UnityEngine.Rendering;
+using UnityEngine;
 
-public class NativeActionTest : Action
+public class ActionTest : Action
 {
     public class NativeActionTestRenderEventIDS : ActionRenderEventIDS
     {
-        const int ACTION_TEST_UPDATE = NATIVE_ACTION_RENDER_EVENT_ID_COUNT;
+        public const int ACTION_TEST_UPDATE = NATIVE_ACTION_RENDER_EVENT_ID_COUNT;
 
-        const int NATIVE_ACTION_TEST_RENDER_EVENT_ID_COUNT = ACTION_TEST_UPDATE + 1;
+        public const int NATIVE_ACTION_TEST_RENDER_EVENT_ID_COUNT = ACTION_TEST_UPDATE + 1;
     }
 
-    const string dllName = "NativeActionTest";
+    const string dllName = "ActionTest";
 
     [DllImport(dllName, EntryPoint = "createAction")]
     private static extern IntPtr createActionExtern();
@@ -37,10 +39,22 @@ public class NativeActionTest : Action
         return getRenderEventIDOffsetExtern(ActionPointer);
     }
 
+    struct DataToPlugin
+    {
+        int value;
+        Vector3 bla;
+    }
+
+    CommandBuffer cb;
+    IntPtr ptrToData;
+
     protected override void Start()
     {
         base.Start();
+        cb = new();
         SetupAction();
+        cb.IssuePluginEventAndData(actionRuntime.RenderEventAndDataFuncPointer, getRenderEventID(NativeActionTestRenderEventIDS.ACTION_TEST_UPDATE), IntPtr.Zero);
+        Camera.main.AddCommandBuffer(CameraEvent.AfterDepthTexture, cb);
     }
 
     private void OnDestroy()
